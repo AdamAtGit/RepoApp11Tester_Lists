@@ -62,6 +62,7 @@ namespace App11Tester_Lists
 
         private void btnClassRemove_Click(object sender, RoutedEventArgs e)
         {
+
             //Replace Class with your object type
             while (myClassListBox.SelectedItems.Count > 0)
             {

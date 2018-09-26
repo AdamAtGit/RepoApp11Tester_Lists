@@ -50,6 +50,7 @@ namespace App11Tester_Lists.Model
 
         public override string ToString()
         {
+
             return Id + " ," + Category  + " ," + Title;
         }
     }

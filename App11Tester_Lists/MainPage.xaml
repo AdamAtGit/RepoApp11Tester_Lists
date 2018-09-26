@@ -36,7 +36,8 @@
                 Text="&lt;Class&gt; Add. Remove Selection"/>
             <Button Name="btnClassAdd" Click="btnClassAdd_Click" Margin="5 5">Add Class Items</Button>
             <Button Name="btnClassRemove" Click="btnClassRemove_Click" Margin="5 5">Remove Selected Class Items</Button>
-            <ListBox Name="myClassListBox"                 
+            <ListBox Name="myClassListBox"    
+                     
                      ItemsSource="{Binding ContentCollection}"
                      SelectionMode="Multiple" 
                      Height="160" Width="330"
