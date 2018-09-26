@@ -5,28 +5,42 @@
     xmlns:local="using:App11Tester_Lists"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-   xmlns:testApp="clr-namespace:TestApp" DataContext="{Binding RelativeSource={RelativeSource Self}}"
+   
+    xmlns:testApp="clr-namespace:TestApp" 
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"  
+    
+    xmlns:m="using:App11Tester_Lists.Model"  
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
- 
-        <Grid Name="grid" >
-        <StackPanel Width="340" VerticalAlignment="Stretch"
-                    HorizontalAlignment="Center" Margin="5 5">
+    <Page.Resources>
+        <m:Content x:Key="Content"/>
+    </Page.Resources>
+    <StackPanel>
+        <TextBox Text="ObservableCollection&lt;T&gt;" HorizontalAlignment="Center"/>
+        <StackPanel Background="Orange"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center" 
+                    Width="340" Height="245" Margin="5 5 0 10">
             <TextBlock HorizontalAlignment="Center"
-                Text="Works for a String. Even Multi Selection Remove"/>
-            <Button Name="btnAdd" Click="btnAdd_Click"  Margin="5 5">Add Item</Button>
-                <Button Name="btnRemove" Click="btnRemove_Click">Remove Selected</Button>
-                <ListBox Name="myListBox" Height="200" SelectionMode="Multiple" ItemsSource="{Binding MyCollection}"/>
-            </StackPanel>
-
-        <StackPanel Width="340" VerticalAlignment="Stretch"
-                    HorizontalAlignment="Center" Margin="5 5">
-            <TextBlock HorizontalAlignment="Center"
-                Text="Works for a String. Even Multi Selection Remove"/>
-            <Button Name="btnClassAdd" Click="btnClassAdd_Click"  Margin="5 5">Add Item</Button>
-            <Button Name="btnClassRemove" Click="btnClassRemove_Click">Remove Selected</Button>
-            <ListBox Name="myClassListBox" Height="200" SelectionMode="Multiple" ItemsSource="{Binding MyCollection}"/>
+                Text="&lt;String&gt; Add. Removes even Multiple Items"/>
+            <Button Name="btnAdd" Click="btnAdd_Click" Margin="5 5">Add Item</Button>
+            <Button Name="btnRemove" Click="btnRemove_Click">Remove Selected</Button>
+            <ListBox Name="myListBox" Height="140" Width="330"
+                     SelectionMode="Multiple" Margin="5 5"
+                     ItemsSource="{Binding MyCollection}"/>
         </StackPanel>
-    </Grid>
+        <StackPanel Background="DodgerBlue"                 
+                    Width="340" VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Margin="5 0 5 5">
+            <TextBlock HorizontalAlignment="Center"
+                Text="&lt;Class&gt; Add. Remove Selection"/>
+            <Button Name="btnClassAdd" Click="btnClassAdd_Click" Margin="5 5">Add Class Items</Button>
+            <Button Name="btnClassRemove" Click="btnClassRemove_Click" Margin="5 5">Remove Selected Class Items</Button>
+            <ListBox Name="myClassListBox"                 
+                     ItemsSource="{Binding ContentCollection}"
+                     SelectionMode="Multiple" 
+                     Height="160" Width="330"
+                     Margin="5 5"/>
+        </StackPanel>
+    </StackPanel>
 </Page>

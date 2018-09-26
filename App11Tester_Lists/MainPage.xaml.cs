@@ -1,21 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Text;
-using System.Windows;
-using System.Windows.Input;
-using System.Collections.ObjectModel;
+using App11Tester_Lists.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -33,9 +19,14 @@ namespace App11Tester_Lists
 
         //for a Class/Model
 
-        ObservableCollection<string> contentCollection = new ObservableCollection<string>();
-        public ObservableCollection<string> contentCollection
-        { get { return contentCollection; } }
+        ObservableCollection<Content> contentCollection = new ObservableCollection<Content>();
+        public ObservableCollection<Content> ContentCollection
+        {
+            get
+            {
+                return contentCollection;
+            }
+        }
 
         public MainPage()
         {
@@ -58,20 +49,25 @@ namespace App11Tester_Lists
             }
         }
 
+        private int x = 0;
         private void btnClassAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            x++;
+            Content c = new Content();
+            c.Id = c.Id + x;
+            c.Category = c.Category + x;
+            c.Title = c.Title + x;
+            contentCollection.Add(c);    
         }
 
         private void btnClassRemove_Click(object sender, RoutedEventArgs e)
         {
-
+            //Replace Class with your object type
+            while (myClassListBox.SelectedItems.Count > 0)
+            {
+                contentCollection.Remove((Content)myClassListBox.SelectedItem);
+            }
         }
 
-        public class Content
-        {
-
-
-        }
     }
 }
